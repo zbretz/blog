@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static(__dirname + '/../client/dist'));
 
 
-app.get('/feed', (req, res) => {
+app.get('/', (req, res) => {
  // res.send('Hello World!');
  //home page
   //post feed
@@ -21,6 +21,21 @@ app.get('/feed', (req, res) => {
     }
   })
 });
+
+app.get('/post', (req, res) => {
+   res.send('Hello World!');
+  //home page
+   //post feed
+   var user = req.params.user
+   var allPosts = fetch.fetchAllbyUser(user, (err, data) => {
+     if(err){
+       throw(err)
+     } else{
+       res.json(data)
+       console.log(data)
+     }
+   })
+ });
 
 app.get('/edit', (req, res) => {
   // res.send('Hello World!');

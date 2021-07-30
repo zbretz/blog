@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RepoList from './components/test.jsx';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Feed from './components/feed.jsx';
+import Post from './components/post.jsx';
 
 const title = 'React with Webpack and Babel';
 
@@ -9,8 +11,20 @@ const title = 'React with Webpack and Babel';
 //   document.getElementById('app')
 // );
 
-const App = () => (
-  <RepoList/>
-)
+const App = () => {
+  return (
+    <div className="App">
+      <Router>
+        {/* <Navigation /> */}
+        <Switch>
+          <Route path="/" exact component={() => <Feed />} />
+          <Route path="/post" exact component={() => <Post />} />
+        </Switch>
+        {/* <Footer /> */}
+      </Router>
+    </div>
+  );
+  // <RepoList/>
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
