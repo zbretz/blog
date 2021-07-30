@@ -9,32 +9,33 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 
 app.get('/', (req, res) => {
+  console.log('SOMETHING!')
  // res.send('Hello World!');
  //home page
   //post feed
-  var allPosts = fetch.fetchAll((err, data) => {
-    if(err){
-      throw(err)
-    } else{
-      res.json(data)
-      console.log(data)
-    }
-  })
+  // var allPosts = fetch.fetchAll((err, data) => {
+  //   if(err){
+  //     throw(err)
+  //   } else{
+  //     //res.json(data)
+  //     res.send('sufevijnb')
+  //     console.log(data)
+  //   }
+  // })
 });
 
-app.get('/post', (req, res) => {
-   res.send('Hello World!');
+app.get('/all', (req, res) => {
+ //  res.send('Hello World!');
   //home page
    //post feed
-   var user = req.params.user
-   var allPosts = fetch.fetchAllbyUser(user, (err, data) => {
-     if(err){
-       throw(err)
-     } else{
-       res.json(data)
-       console.log(data)
-     }
-   })
+  var allPosts = fetch.fetchAll((err, data) => {
+      if(err){
+        throw(err)
+      } else{
+        res.json(data)
+        console.log(data)
+      }
+    })
  });
 
 app.get('/edit', (req, res) => {
@@ -47,7 +48,7 @@ app.get('/edit', (req, res) => {
   //home page
    //post feed
    var user = req.params.user
-   var allPosts = fetch.fetchAllbyUser(user, (err, data) => {
+   var userPosts = fetch.fetchAllbyUser(user, (err, data) => {
      if(err){
        throw(err)
      } else{

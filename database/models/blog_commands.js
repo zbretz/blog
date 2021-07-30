@@ -13,9 +13,9 @@ let BlogModel = require('./blog')
   // })
 
 //   let post = new BlogModel({
-//     title:'First Post',
-//     text: 'post body',
-//     author: {userName:'Zach'}
+//     title:'Something',
+//     text: 'text text text',
+//     author: {userName:'Kate'}
 //   })
 
 // post.save()
@@ -37,6 +37,8 @@ const fetchAll = function(callback){
     callback(err, null)
   })
 }
+
+// fetchAll(()=>{})
 
 const fetchAllbyUser = function(user, callback){
   var author = {userName:user}

@@ -17,8 +17,8 @@ const App = () => {
       <Router>
         {/* <Navigation /> */}
         <Switch>
-          <Route path="/" exact component={() => <Feed />} />
-          <Route path="/post" exact component={() => <Post />} />
+          <Route path="/all" exact component={() => <Feed feedView={'all'}/>} />
+          <Route path="/:user/feed" exact component={() => <Feed  feedView={'user'}/>} />
         </Switch>
         {/* <Footer /> */}
       </Router>
