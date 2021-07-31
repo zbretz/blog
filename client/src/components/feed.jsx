@@ -11,6 +11,7 @@ class Feed extends React.Component{
     }
   }
 
+
   componentDidMount(){
     var feedView = this.props.feedView
 
