@@ -1,38 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 const httpHandler = require('../httpHandler')
 
-class Feed extends React.Component{
-  constructor(props){
-    super(props)
+const Feed = (props) => {
 
-    this.state = {
-      postData: null
-    }
-  }
+  const [postData, setPostData] = useState([]);
 
-   componentDidMount(){
-    const path = this.props.match.path
+  const path = props.match.path;
+
+  useEffect(() => {
 
     if (path === "/all"){
       httpHandler.getFeedAllUsers((err, data)=>{
-      this.setState({postData:data})
+      setPostData(data)
       })
     } else if (path === "/:user/feed"){
-        const user = this.props.match.params.user
+        const user = props.match.params.user
         httpHandler.getFeedOneUser(user, (err, data)=>{
-        this.setState({postData:data})
+        setPostData(data)
       })
 
     }
-  }
-//benefits: less state to manage, cleaner/more readable
-  render(){
+  }, [])
 
-    if (this.state.postData){
+
+    if (postData){
 
       return(
         <div>
-          {this.state.postData.map(post=>
+          {postData.map(post=>
             <div style={{border:'2px solid red'}}>
               <>
                 <div>{post.author.userName}</div>
@@ -47,7 +42,9 @@ class Feed extends React.Component{
       return <div>lnklkn</div>
     }
 
-  }
+    return <div>wefwefwe</div>
+
+
 
 }
 
