@@ -6,62 +6,43 @@ class Feed extends React.Component{
     super(props)
 
     this.state = {
-      feedView:null,//'all', // vs 'user'
       postData: null
     }
   }
 
    componentDidMount(){
-    //var feedView = this.props.feedView
-    this.setState({feedView:this.props.feedView})
+    const path = this.props.match.path
 
-   console.log(this.props.match.params.user)
-   const user = this.props.match.params.user
-
-  console.log(this.props.feedView)
-console.log(this.state.feedView)
-    if(this.props.feedView === 'all'){
-    //  console.log(feedView)
+    if (path === "/all"){
       httpHandler.getFeedAllUsers((err, data)=>{
-        console.log('BANANAAAA')
-        this.setState({postData:data})
-        console.log(data)
+      this.setState({postData:data})
       })
-    } else {
- //     const user = this.props.feedView
+    } else if (path === "/:user/feed"){
+        const user = this.props.match.params.user
         httpHandler.getFeedOneUser(user, (err, data)=>{
         this.setState({postData:data})
-        console.log('sdfsdf')
-        console.log(this.state.postData)
       })
 
     }
-
   }
-
+//benefits: less state to manage, cleaner/more readable
   render(){
-
-    console.log(this.props)
 
     if (this.state.postData){
 
       return(
         <div>
-
           {this.state.postData.map(post=>
-
-                  <div style={{border:'2px solid red'}}>
-
-             <>   <div>{post.author.userName}</div>
+            <div style={{border:'2px solid red'}}>
+              <>
+                <div>{post.author.userName}</div>
                 <div>{post.title}</div>
                 <div>{post.text}</div>
-                </> </div>
-
-
+              </>
+            </div>
           )}
         </div>
       )
-
     } else {
       return <div>lnklkn</div>
     }
