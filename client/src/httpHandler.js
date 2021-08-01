@@ -3,12 +3,12 @@ const axios = require('axios');
 const getFeedOneUser = (user = 'Zach', callback) => {
 
   const instance = axios.create({
-    baseURL: 'https://localhost:8000',
+    baseURL: 'http://localhost:8000',
   });
 
-  instance.get(`/${user}/feed`)
+  instance.get(`/api/${user}/feed`)
     .then(response => {
-//    console.log(response.data);
+    console.log(response.data);
     callback(null,response.data)
     })
     .catch(function (err) {
@@ -25,14 +25,14 @@ const getFeedOneUser = (user = 'Zach', callback) => {
 const getFeedAllUsers = (callback) => {
 
   const instance = axios.create({
-    baseURL: 'https://localhost:8000',
+    baseURL: 'http://localhost:8000',
   });
 
-  instance.get(`/`)
+  instance.get(`/api/all`)
     .then(response => {
-//    console.log(response.data);
+    console.log(response.data);
     callback(null,response.data)
-    console.log(response.data)
+    //console.log(response.data)
     })
     .catch(function (err) {
     console.log(err);
@@ -45,4 +45,4 @@ const getFeedAllUsers = (callback) => {
 
 }
 
-module.exports = {getFeedAllUsers}
+module.exports = {getFeedAllUsers, getFeedOneUser}
