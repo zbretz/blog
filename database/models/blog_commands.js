@@ -65,7 +65,7 @@ const fetchAllUsers = function(callback){
   })
 }
 
-fetchAllUsers((err, data) => console.log(data))
+//fetchAllUsers((err, data) => console.log(data))
 
 
   // BlogModel.deleteMany({blog: 'First Post'})
