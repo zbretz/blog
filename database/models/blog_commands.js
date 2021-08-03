@@ -53,6 +53,21 @@ const fetchAllbyUser = function(user, callback){
   })
 }
 
+const fetchAllUsers = function(callback){
+  BlogModel.find().distinct('author')
+  .then(doc => {
+    console.log(doc)
+    callback(null, doc)
+  })
+  .catch(err => {
+    console.error(err)
+    callback(err, null)
+  })
+}
+
+fetchAllUsers((err, data) => console.log(data))
+
+
   // BlogModel.deleteMany({blog: 'First Post'})
   // .then(doc => {
   //   console.log(doc)
@@ -61,4 +76,4 @@ const fetchAllbyUser = function(user, callback){
   //   console.error(err)
   // })
 
-  module.exports = {fetchAll, fetchAllbyUser}
+  module.exports = {fetchAll, fetchAllbyUser, fetchAllUsers}

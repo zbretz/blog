@@ -45,4 +45,28 @@ const getFeedAllUsers = (callback) => {
 
 }
 
-module.exports = {getFeedAllUsers, getFeedOneUser}
+
+const getUsers = (callback) => {
+
+  const instance = axios.create({
+    baseURL: 'http://localhost:8000',
+  });
+
+  instance.get(`/api/users`)
+    .then(response => {
+    console.log(response.data);
+    callback(null,response.data)
+    //console.log(response.data)
+    })
+    .catch(function (err) {
+    console.log(err);
+    callback(err, null)
+
+    })
+    .then(function () {
+      //
+    });
+
+}
+
+module.exports = {getFeedAllUsers, getFeedOneUser, getUsers}

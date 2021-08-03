@@ -22,7 +22,6 @@ const App = () => {
           <Route path="/:user/feed" component={Feed} /> */}
           <Route path="/all" render={(props)=>(<Feed {...props} feedView={'all'}/>)} />
           <Route path="/:user/feed" render={(props)=>(<Feed {...props} feedView={'user'}/>)} />
-
           <Route path="/:user/post/:post_id " exact component={(props) => <Post {...props}/>} />
         </Switch>
         {/* <Footer /> */}

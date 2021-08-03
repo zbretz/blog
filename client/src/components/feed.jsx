@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 const httpHandler = require('../httpHandler')
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {UserList} from './user_list.jsx';
+
 
 
 const Feed = (props) => {
@@ -32,10 +34,12 @@ const Feed = (props) => {
     if (postData){
 
       return(
+        <>
+
+        <UserList postData={postData}/>
         <div id='feed'>
           {postData.map(post=>
             <div className='post' >
-              <>
               <h3 className='post-title'>{post.title}</h3>
               <div className='post-content'>
                 <Link to={`/${post.author.userName}/feed`}>
@@ -43,18 +47,15 @@ const Feed = (props) => {
                 </Link>
                 <div>{post.text}</div>
                </div>
-              </>
+
             </div>
           )}
         </div>
+        </>
       )
     } else {
-      return <div>lnklkn</div>
+      return <div>No posts</div>
     }
-
-    return <div>wefwefwe</div>
-
-
 
 }
 
