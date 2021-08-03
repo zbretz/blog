@@ -25,7 +25,7 @@ const UserList = () => {
     httpHandler.getUsers((err, data)=>{
       setUserData(data)
       })
-  })
+  }, [])
 
   return(
     <div>
