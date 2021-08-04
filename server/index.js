@@ -7,28 +7,28 @@ require('dotenv').config();
 
 const app = express();
 
-// app.use(
-//   auth({
-//       authRequired: false,
-//       auth0Logout: true,
-//       issuerBaseURL: process.env.ISSUER_BASE_URL,
-//       baseURL: process.env.BASE_URL,
-//       clientID: process.env.CLIENT_ID,
-//       secret: process.env.SECRET,
-//   })
-// );
+app.use(
+  auth({
+      authRequired: false,
+      auth0Logout: true,
+      issuerBaseURL: process.env.ISSUER_BASE_URL,
+      baseURL: process.env.BASE_URL,
+      clientID: process.env.CLIENT_ID,
+      secret: process.env.SECRET,
+  })
+);
 
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://localhost:8000',
-  clientID: 'XfJy7QIBeHtppqnjKikHJWotC6MBVJWf',
-  issuerBaseURL: 'https://dev-h4p9ruiy.us.auth0.com'
-};
+// const config = {
+//   authRequired: false,
+//   auth0Logout: true,
+//   secret: 'a long, randomly-generated string stored in env',
+//   baseURL: 'http://localhost:8000',
+//   clientID: 'XfJy7QIBeHtppqnjKikHJWotC6MBVJWf',
+//   issuerBaseURL: 'https://dev-h4p9ruiy.us.auth0.com'
+// };
 
-// auth router attaches /login, /logout, and /callback routes to the baseURL
-app.use(auth(config));
+// //auth router attaches /login, /logout, and /callback routes to the baseURL
+// app.use(auth(config));
 
 app.use(express.static(__dirname + '/../client/dist'));
 
