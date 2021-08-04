@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require("path");
 let fetch = require('../database/models/blog_commands')
-const { auth } = require('express-openid-connect');
+const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 
 const app = express();
@@ -61,6 +61,10 @@ app.get('/api/all', (req, res) => {
       }
     })
  });
+
+ app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 app.get('/edit', (req, res) => {
 
