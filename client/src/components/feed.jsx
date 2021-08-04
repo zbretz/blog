@@ -9,7 +9,7 @@ const Feed = (props) => {
 
   const [postData, setPostData] = useState([]);
   const [feedView, setFeedView] = useState(null);
-
+  const [author, setAuthor] = useState()
 
   const path = props.match.path;
 
@@ -25,10 +25,11 @@ const Feed = (props) => {
         httpHandler.getFeedOneUser(user, (err, data)=>{
         setPostData(data)
         setFeedView(path)
+        // setAuthor(data.author)
       })
 
     }
-  }, [props.feedView])
+  }, [props.feedView,props.match.params.user])
 
 
     if (postData){
