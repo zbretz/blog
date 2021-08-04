@@ -69,4 +69,27 @@ const getUsers = (callback) => {
 
 }
 
-module.exports = {getFeedAllUsers, getFeedOneUser, getUsers}
+const getPost = (user='Zach', _id='610340848779b2ddec4a95ef', callback) => {
+
+  const instance = axios.create({
+    baseURL: 'http://localhost:8000',
+  });
+
+  instance.get(`/api/${user}/post/${_id}`)
+    .then(response => {
+    console.log(response.data);
+    callback(null,response.data)
+    //console.log(response.data)
+    })
+    .catch(function (err) {
+    console.log(err);
+    callback(err, null)
+
+    })
+    .then(function () {
+      //
+    });
+
+}
+
+module.exports = {getFeedAllUsers, getFeedOneUser, getUsers, getPost}

@@ -65,6 +65,14 @@ const fetchAllUsers = function(callback){
   })
 }
 
+ const fetchPost = function(_id, callback){
+  BlogModel.findById(_id)
+  .then(doc=> {callback(null,doc)})
+  .catch(err => {
+    callback(err, null)
+  })
+}
+
 //fetchAllUsers((err, data) => console.log(data))
 
 
@@ -76,4 +84,4 @@ const fetchAllUsers = function(callback){
   //   console.error(err)
   // })
 
-  module.exports = {fetchAll, fetchAllbyUser, fetchAllUsers}
+  module.exports = {fetchAll, fetchAllbyUser, fetchAllUsers, fetchPost}

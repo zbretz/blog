@@ -18,18 +18,6 @@ app.use(
   })
 );
 
-// const config = {
-//   authRequired: false,
-//   auth0Logout: true,
-//   secret: 'a long, randomly-generated string stored in env',
-//   baseURL: 'http://localhost:8000',
-//   clientID: 'XfJy7QIBeHtppqnjKikHJWotC6MBVJWf',
-//   issuerBaseURL: 'https://dev-h4p9ruiy.us.auth0.com'
-// };
-
-// //auth router attaches /login, /logout, and /callback routes to the baseURL
-// app.use(auth(config));
-
 app.use(express.static(__dirname + '/../client/dist'));
 
 
@@ -99,9 +87,38 @@ app.get('/api/users', (req, res) => {
   })
 });
 
+app.get('/create', (req, res)=>{
+  res.send(JSON.stringify(req.oidc.user));
+})
 
- app.get('/:user/post/:id', (req, res) => {
- });
+app.get('/:user/post/:id', (req, res) => {
+  const user = req.params['user']
+  let _id = req.params['id']
+   console.log(_id)
+  // _id = String(_id)
+  // const _id = '6104686c0a39b403e3248431'
+  // const _id = '610340848779b2ddec4a95ef'
+  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
+
+})
+
+  app.get('/api/:user/post/:id', (req, res) => {
+    const user = req.params['user']
+    let _id = req.params['id']
+    // console.log(_idd)
+    // _id = String(_id)
+    // const _id = '6104686c0a39b403e3248431'
+    // const _id = '610340848779b2ddec4a95ef'
+    fetch.fetchPost(_id, (err, data)=>{
+      if(err){
+        console.log(err)
+      } else {
+      res.json(data)
+      }
+    })
+
+//res.send(JSON.stringify(req.oidc.user));
+});
 
 app.listen(8000, () =>
   console.log('Example app listening on port 8000!'),

@@ -1,9 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+const httpHandler = require('../httpHandler')
 
-const Post = () => (
-  <div>
-    <h4> Post </h4>
-  </div>
-)
+const usePostData = (user, postId) => {
+
+  const [post, setPost] = useState([]);
+
+  useEffect(()=>{
+    httpHandler.getPost(user, postId, (err, data)=>{
+      setPost(data)
+    })
+  },[])
+  return post
+}
+
+const Post = (props) => {
+
+  const post = usePostData()
+
+  // return 'SDFSDFSF'
+
+  if (post){
+    return(
+      <div>{post.title}</div>
+    )
+  } else {
+    return(
+      <div>fail</div>
+    )
+  }
+
+  // if(props.postData){
+  //   return postData
+  // } else {
+  //   <div>
+  //     <h4> Post </h4>
+  //   </div>
+  // }
+
+}
 
 export default Post;
+
+//set-up post routes/data-fetchers/custom hook
