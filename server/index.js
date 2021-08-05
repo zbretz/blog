@@ -88,7 +88,8 @@ app.get('/api/users', (req, res) => {
 });
 
 app.get('/create', (req, res)=>{
-  res.send(JSON.stringify(req.oidc.user));
+  res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
+  // res.send(JSON.stringify(req.oidc.user));
 })
 
 app.get('/:user/post/:id', (req, res) => {
