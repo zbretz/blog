@@ -15,7 +15,11 @@ const usePostData = (user, postId) => {
 
 const Post = (props) => {
 
-  const post = usePostData()
+  console.log(props.match.params.user)
+  const user = props.match.params.user
+  const post_id = props.match.params.post_id
+
+  const post = usePostData(user, post_id)
 
   // return 'SDFSDFSF'
 

@@ -41,7 +41,9 @@ const Feed = (props) => {
         <div id='feed'>
           {postData.map(post=>
             <div className='post' >
-              <h3 className='post-title'>{post.title}</h3>
+              <Link to={`/${post.author.userName}/post/${post._id}`}>
+                <h3 className='post-title'>{post.title}</h3>
+              </Link>
               <div className='post-content'>
                 <Link to={`/${post.author.userName}/feed`}>
                   <div><strong>{post.author.userName}</strong></div>
