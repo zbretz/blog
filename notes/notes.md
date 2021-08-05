@@ -10,7 +10,7 @@
   [x] Create Component (components/create.jsx)
 
  ## Backend Functionality
-  [ ] Create Insert Command
+  [X] Create Insert Command
    [ ] Mongoose function
    [ ] Wrap mongoose func for server route callback
   [ ] Apply command to API POST route

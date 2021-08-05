@@ -92,6 +92,15 @@ app.get('/create', (req, res)=>{
   // res.send(JSON.stringify(req.oidc.user));
 })
 
+app.post('/api/create', (req, res) => {
+  // use openid to determine author:userName
+   res.send(JSON.stringify(req.oidc.user));
+
+  var somevar = 'hello'//JSON.stringify(req.oidc.user)
+  res.send(somevar)
+
+})
+
 app.get('/:user/post/:id', (req, res) => {
   const user = req.params['user']
   let _id = req.params['id']

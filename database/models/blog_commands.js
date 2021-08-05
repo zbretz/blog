@@ -38,8 +38,6 @@ const fetchAll = function(callback){
   })
 }
 
-// fetchAll(()=>{})
-
 const fetchAllbyUser = function(user, callback){
   var author = {userName:user}
   BlogModel.find({author: author})
@@ -72,6 +70,34 @@ const fetchAllUsers = function(callback){
     callback(err, null)
   })
 }
+
+// const createPost = function(title, text, author){
+//   let post = new BlogModel({
+//     title:'Third Post..or is it fourth?',
+//     text: 'text text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text text',
+//     author: {userName:'Hazel'}
+//   })
+// }
+
+var userName = 'Hazel'
+var title = 'Third Post..or is it fourth...or fifth..or..did I finally get it?'
+var text = 'text text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text texttext text text'
+var author = {userName:userName}
+
+const createPost = function(title, text, author){
+  let post = new BlogModel({title,text,author})
+  post.save()
+  .then(doc => {
+    console.log(doc)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
+createPost(title,text,author)
+
+//fetchAll(()=>{})
 
 //fetchAllUsers((err, data) => console.log(data))
 
