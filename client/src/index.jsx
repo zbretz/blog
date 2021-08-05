@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {Feed} from './components/feed.jsx';
-
 import Post from './components/post.jsx';
+import {Create} from './components/create.jsx';
+
 
 const title = 'React with Webpack and Babel';
 
@@ -23,6 +24,8 @@ const App = () => {
           <Route path="/all" render={(props)=>(<Feed {...props} feedView={'all'}/>)} />
           <Route path="/:user/feed" render={(props)=>(<Feed {...props} feedView={'user'}/>)} />
           <Route path="/:user/post/:post_id" exact component={(props) => <Post {...props}/>} />
+          <Route path="/create" exact component={(props) => <Create {...props}/>} />
+
         </Switch>
         {/* <Footer /> */}
       </Router>
