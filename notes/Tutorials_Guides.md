@@ -7,6 +7,7 @@
 # Routes
  - https://scotch.io/courses/using-react-router-4/route-params
  - https://reactrouter.com/web/api/Link
+ - https://ui.dev/react-router-v4-pass-props-to-components/
 
 # Express Middleware
  - https://developer.okta.com/blog/2018/09/13/build-and-understand-express-middleware-through-examples

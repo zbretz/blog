@@ -42,7 +42,7 @@ const fetchAllbyUser = function(user, callback){
   var author = {userName:user}
   BlogModel.find({author: author})
   .then(doc => {
-    console.log(doc)
+  //  console.log(doc)
     callback(null, doc)
   })
   .catch(err => {
@@ -54,7 +54,7 @@ const fetchAllbyUser = function(user, callback){
 const fetchAllUsers = function(callback){
   BlogModel.find().distinct('author')
   .then(doc => {
-    console.log(doc)
+   // console.log(doc)
     callback(null, doc)
   })
   .catch(err => {
@@ -99,7 +99,7 @@ const createPost = function(title, text, author, callback){
 
 //createPost(title,text,author)
 
-fetchAll(()=>{})
+//fetchAll(()=>{})
 
 //fetchAllUsers((err, data) => console.log(data))
 
@@ -112,4 +112,9 @@ fetchAll(()=>{})
   //   console.error(err)
   // })
 
-  module.exports = {fetchAll, fetchAllbyUser, fetchAllUsers, fetchPost}
+  // BlogModel.deleteOne({ title: 'hello from server' }, function (err) {
+  //   if(err) console.log(err);
+  //   console.log("Successful deletion");
+  // });
+
+  module.exports = {fetchAll, fetchAllbyUser, fetchAllUsers, fetchPost, createPost}

@@ -4,6 +4,8 @@ const path = require("path");
 let fetch = require('../database/models/blog_commands')
 const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
+const bodyParser = require("body-parser");
+
 
 const app = express();
 
@@ -17,6 +19,9 @@ app.use(
       secret: process.env.SECRET,
   })
 );
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/../client/dist'));
 
@@ -87,17 +92,23 @@ app.get('/api/users', (req, res) => {
   })
 });
 
-app.get('/create', (req, res)=>{
+app.get('/create',requiresAuth(), (req, res)=>{
   res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
   // res.send(JSON.stringify(req.oidc.user));
 })
 
 app.post('/api/create', (req, res) => {
-  // use openid to determine author:userName
-   res.send(JSON.stringify(req.oidc.user));
-
+  console.log(req.body)
+  console.log(JSON.stringify(req.oidc.user))
   var somevar = 'hello'//JSON.stringify(req.oidc.user)
-  res.send(somevar)
+  // res.send(somevar)
+  const userName = 'bart'
+  const title ='hello from server'
+  const text ='let me tell you all about it let me tell you all about it let me tell you all about it let me tell you all about it'
+  const author = {userName:userName}
+  fetch.createPost(title, text, author, (err,data)=>{
+
+  })
 
 })
 

@@ -7,11 +7,15 @@ import {UserList} from './user_list.jsx';
 
 const Create = (props) => {
 
+  const clickHandler = () =>{
+    httpHandler.create()
+  }
+
   return(
     <form onSubmit={null}>
         <label>
           Blog Post:
-          <textarea value={null} onChange={null} />
+          <textarea value={null} onChange={null} onClick={clickHandler}/>
         </label>
         <input type="submit" value="Submit" />
       </form>
