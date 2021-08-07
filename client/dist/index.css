@@ -11,18 +11,28 @@ body{
   padding:20px;
   background-color: #A3D2CA;
   max-width: 600px;
-  margin:auto 10px;
-  border-radius: 15px;
+  margin:auto 15px;
+  border-radius: 12px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #user-list{
-background-color: ;
-color: #333333;
-width: 120px;
+  padding:20px;
+  background-color: ;
+  color: #333333;
+  width: 120px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 #user-list--names{
-  border: 1px solid #333333;
+  /* border: 1px solid #333333; */
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+#user-list--names li{
+  border-bottom: 1px solid #333333;
 }
 
 a:link {
