@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 const httpHandler = require('../httpHandler')
 import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {UserList} from './user_list.jsx';
+import {NavBar} from './navBar.jsx';
+
 
 
 
@@ -39,6 +41,7 @@ const Feed = (props) => {
         <div class="container">
 
           <header>
+            <NavBar/>
           </header>
           <main class="container__main">
               <aside class="container__left">
@@ -48,6 +51,7 @@ const Feed = (props) => {
 
 
                 <div id='feed'>
+                  Post Feed
                   {postData.map(post=>
                     <div className='post' >
                       <Link to={`/${post.author.userName}/post/${post._id}`}>
@@ -67,11 +71,29 @@ const Feed = (props) => {
               </article>
               <nav class="container__right">
                 <div id='qa_feed'>
+                  {/* Questions and Answers
                   <div className='qa_feed__qa'>
                   </div>
 
                   <div className='qa_feed__qa'>
-                  </div>
+                  </div> */}
+                  Questions and Answers
+
+                    <div className='post' >
+                      <Link to={`/`}>
+                        <h3 className='post-title'>Title</h3>
+                      </Link>
+                      <div className='post-content'>
+                        <Link to={`/`}>
+                          <div><strong>Author Name</strong></div>
+                        </Link>
+                        <div>Question</div>
+                      </div>
+
+                    </div>
+
+
+
 
                 </div>
               </nav>

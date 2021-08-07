@@ -31,7 +31,8 @@ const UserList = () => {
 
   return(
     <div id='user-list'>
-    <h3>user list</h3>
+    user list
+    <div>
     <ul id='user-list--names'>
       {userData.map(author =>
       <Link to={`/${author.userName}/feed`}>
@@ -39,6 +40,7 @@ const UserList = () => {
       </Link>
         )}
     </ul>
+    </div>
     </div>
   )
 }
