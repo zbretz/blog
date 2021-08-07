@@ -36,25 +36,45 @@ const Feed = (props) => {
 
       return(
         <>
+        <div class="container">
 
-        <UserList postData={postData}/>
-        <div id='feed'>
-          {postData.map(post=>
-            <div className='post' >
-              <Link to={`/${post.author.userName}/post/${post._id}`}>
-                <h3 className='post-title'>{post.title}</h3>
-              </Link>
-              <div className='post-content'>
-                <Link to={`/${post.author.userName}/feed`}>
-                  <div><strong>{post.author.userName}</strong></div>
-                </Link>
-                <div>{post.text}</div>
-               </div>
+          <header>
+          </header>
+          <main class="container__main">
+              <aside class="container__left">
+                <UserList postData={postData}/>
+              </aside>
+              <article class="container__middle">
 
-            </div>
-          )}
+
+                <div id='feed'>
+                  {postData.map(post=>
+                    <div className='post' >
+                      <Link to={`/${post.author.userName}/post/${post._id}`}>
+                        <h3 className='post-title'>{post.title}</h3>
+                      </Link>
+                      <div className='post-content'>
+                        <Link to={`/${post.author.userName}/feed`}>
+                          <div><strong>{post.author.userName}</strong></div>
+                        </Link>
+                        <div>{post.text}</div>
+                      </div>
+
+                    </div>
+                  )}
+                </div>
+
+              </article>
+              <nav class="container__right"></nav>
+          </main>
+          <footer>
+          </footer>
         </div>
         </>
+
+
+
+
       )
     } else {
       return <div>No posts</div>

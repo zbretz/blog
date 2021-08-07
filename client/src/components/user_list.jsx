@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+  import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 const httpHandler = require('../httpHandler')
 
@@ -30,12 +30,15 @@ const UserList = () => {
   }, [])
 
   return(
-    <div>
+    <div id='user-list'>
+    <h3>user list</h3>
+    <ul id='user-list--names'>
       {userData.map(author =>
       <Link to={`/${author.userName}/feed`}>
-        <p> {author.userName} </p>
+        <li><a> {author.userName} </a></li>
       </Link>
         )}
+    </ul>
     </div>
   )
 }
