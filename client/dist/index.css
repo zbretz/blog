@@ -1,3 +1,7 @@
+* {
+  outline: 1px solid red;
+}
+
 body{
   background-color: #5EAAA8;
   font-family: 'Atkinson Hyperlegible', sans-serif;
