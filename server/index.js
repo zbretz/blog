@@ -100,11 +100,12 @@ app.get('/create',requiresAuth(), (req, res)=>{
 app.post('/api/create', (req, res) => {
   console.log(req.body)
   console.log(JSON.stringify(req.oidc.user))
-  var somevar = 'hello'//JSON.stringify(req.oidc.user)
+
+  var titleText = req.body.text
   // res.send(somevar)
-  const userName = 'bart'
-  const title ='hello from server'
-  const text ='let me tell you all about it let me tell you all about it let me tell you all about it let me tell you all about it'
+  const userName = 'lisa'
+  const title = titleText
+  const text ='some new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new text'
   const author = {userName:userName}
   fetch.createPost(title, text, author, (err,data)=>{
 

@@ -1,0 +1,25 @@
+body{
+  background-color: #5EAAA8;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+#feed{
+  padding:20px;
+  background-color: #A3D2CA;
+  max-width: 600px;
+  margin:auto;
+  border-radius: 15px;
+
+}
+
+.post-content{
+  padding: 18px;;
+  background-color:#F7F3E9;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  border: 6px solid #F05945
+}
+
+.post-title{
+  margin-bottom: 4px;
+}
