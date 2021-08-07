@@ -5,8 +5,8 @@ import {UserList} from './user_list.jsx';
 
 // https://reactjs.org/docs/forms.html
 
-function useHandleSubmit(text){
-  httpHandler.create(text, (err,data)=>{
+function useHandleSubmit(post){
+  httpHandler.create(post, (err,data)=>{
     if (err){
     }else {}
   })
@@ -14,20 +14,22 @@ function useHandleSubmit(text){
 
 const Create = (props) => {
 
-  const [value, setValue] = useState('');
-  // const submit = useHandleSubmit(text)
+  const [title, setTitle] = useState('');
+  const [text, setText] = useState('');
 
   const clickHandler = () =>{
     // httpHandler.create()
   }
 
   return(
-    <form onSubmit={()=>{useHandleSubmit(value)}}>
+    <form onSubmit={()=>{useHandleSubmit({title,text})}}>
     {/* </form><form onSubmit={useHandleSubmit(value)}> */}
         <label>
-          Blog Post:
+          Title:
+          <textarea value={title} onChange={()=>{setTitle(event.target.value)}}/>
           {/* <textarea value={value} onChange={setValue(event.target.value)} onClick={clickHandler}/> */}
-          <textarea value={value} onChange={()=>{setValue(event.target.value)}}/>
+          Text:
+          <textarea value={text} onChange={()=>{setText(event.target.value)}}/>
         </label>
         <input type="submit" value="Submit" />
       </form>

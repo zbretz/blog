@@ -101,14 +101,12 @@ app.post('/api/create', (req, res) => {
   console.log(req.body)
   console.log(JSON.stringify(req.oidc.user))
 
-  var titleText = req.body.text
-  // res.send(somevar)
-  const userName = 'lisa'
-  const title = titleText
-  const text ='some new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new textsome new text'
+  var userName = JSON.stringify(req.oidc.user.email)
+  var title = req.body.title
+  var text = req.body.text
+  //const userName = 'lisa'
   const author = {userName:userName}
   fetch.createPost(title, text, author, (err,data)=>{
-
   })
 
 })

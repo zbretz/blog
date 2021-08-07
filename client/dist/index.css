@@ -10,6 +10,7 @@ body{
 header{
   height: 50px;
   border: 2px solid black;
+  margin-bottom: 10px;
 }
 
 #feed{
@@ -23,7 +24,7 @@ header{
 
 #user-list{
   padding:20px;
-  margin: auto 15px;
+  margin: auto;
   background-color: ;
   color: #333333;
   width: 120px;

@@ -94,11 +94,12 @@ const getPost = (user='Zach', _id='610340848779b2ddec4a95ef', callback) => {
 
 
 // const create = (user='Zach', _id='610340848779b2ddec4a95ef', callback) => {
-const create = (text, callback) => {
-
+const create = (post, callback) => {
+  const {title, text} = post
 
   axios.post('http://localhost:8000/api/create', {
-    text: text,
+    title: title,
+    text: text
   });
 
 }

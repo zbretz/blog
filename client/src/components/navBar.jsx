@@ -7,9 +7,9 @@ const NavBar = (props) => {
   return(
 
     <div className="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a class="active" href="#home">RFP-54</a>
+      <a href="#about">Week 1</a>
+      <a href="#contact">Week 2</a>
       <div class="search-container">
         <form >
           <input type="text" placeholder="Search.." name="search"/>
