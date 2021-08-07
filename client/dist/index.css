@@ -7,6 +7,10 @@ body{
   font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
+header{
+  height: 50px;
+}
+
 #feed{
   padding:20px;
   background-color: #A3D2CA;
@@ -90,4 +94,18 @@ a:active {
 
 .container__right {
   width: 40%;
+}
+
+#qa_feed{
+  padding:20px;
+  background-color: #d3f2ed;
+  max-width: 600px;
+  margin:auto 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.qa_feed__qa{
+  height:30px;
+  margin:20px
 }

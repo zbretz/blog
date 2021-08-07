@@ -65,7 +65,16 @@ const Feed = (props) => {
                 </div>
 
               </article>
-              <nav class="container__right"></nav>
+              <nav class="container__right">
+                <div id='qa_feed'>
+                  <div className='qa_feed__qa'>
+                  </div>
+
+                  <div className='qa_feed__qa'>
+                  </div>
+
+                </div>
+              </nav>
           </main>
           <footer>
           </footer>
