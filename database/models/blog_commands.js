@@ -27,7 +27,9 @@ let BlogModel = require('./blog')
 //   })
 
 const fetchAll = function(callback){
-  BlogModel.find({})
+  BlogModel.find({}).
+  limit(12).
+  sort({date: -1})
   .then(doc => {
     console.log(doc)
     callback(null, doc)

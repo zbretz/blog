@@ -61,7 +61,7 @@ const Feed = (props) => {
                         <Link to={`/${post.author.userName}/feed`}>
                           <div><strong>{post.author.userName}</strong></div>
                         </Link>
-                        <div>{post.text}</div>
+                        <div>{post.text.slice(0,120)}</div>
                       </div>
 
                     </div>
