@@ -17,6 +17,7 @@ const createUser = function(username, email, bio, callback){
   })
 }
 
+//below should really be a 'find one query'
 const getUserNameFromEmail = function(email, callback){
     UserModel.find({email:email})
   .then(doc=> {callback(null,doc)})
@@ -32,9 +33,9 @@ const getUserNameFromEmail = function(email, callback){
 //   console.log(data)
 // })
 
-//getUserNameFromEmail('zachary.bretz@gmail.com', (err, data) => console.log(data))
+// getUserNameFromEmail('zachary.bretz@gmail.com', (err, data) => console.log(data[0].username))
 
 
 
 
-module.exports = {createUser}
+module.exports = {getUserNameFromEmail}

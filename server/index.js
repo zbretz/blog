@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require("path");
 let fetch = require('../database/models/blog_commands')
+let fetchUsername = require('../database/models/user_commands')
 const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 const bodyParser = require("body-parser");
@@ -105,16 +106,23 @@ app.get('/create',requiresAuth(), (req, res)=>{
 })
 
 app.post('/api/create', (req, res) => {
-  console.log(req.body)
-  console.log(JSON.stringify(req.oidc.user))
-
-  var userName = JSON.stringify(req.oidc.user.email)
+  var email = req.oidc.user.email//JSON.stringify(req.oidc.user.email)
+  console.log(req.oidc.user.email)
+  //below should really be a 'find one query'
+  var userName = fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+    if (err){
+      throw (err)
+    } else {
+      console.log('test', data[0].username)
+      return data[0].username
+    }
+  })
+  console.log(userName)
   var title = req.body.title
   var text = req.body.text
-  //const userName = 'lisa'
   const author = {userName:userName}
-  fetch.createPost(title, text, author, (err,data)=>{
-  })
+  // fetch.createPost(title, text, author, (err,data)=>{
+  // })
 
 })
 

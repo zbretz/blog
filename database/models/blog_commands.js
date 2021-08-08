@@ -101,7 +101,7 @@ const createPost = function(title, text, author, callback){
 
 //createPost(title,text,author)
 
-//fetchAll(()=>{})
+  // fetchAll(()=>{})
 
 //fetchAllUsers((err, data) => console.log(data))
 
@@ -114,7 +114,7 @@ const createPost = function(title, text, author, callback){
   //   console.error(err)
   // })
 
-  // BlogModel.deleteOne({ title: 'hello from server' }, function (err) {
+  // BlogModel.deleteOne({ title: 'egeg' }, function (err) {
   //   if(err) console.log(err);
   //   console.log("Successful deletion");
   // });
