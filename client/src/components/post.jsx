@@ -3,12 +3,18 @@ const httpHandler = require('../httpHandler')
 
 const usePostData = (user, postId) => {
 
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState(null);
 
   useEffect(()=>{
+    let componentMounted = true;
     httpHandler.getPost(user, postId, (err, data)=>{
+      if (componentMounted){
       setPost(data)
+      }
     })
+    return () => {
+      componentMounted = false
+    }
   },[])
   return post
 }
@@ -25,7 +31,12 @@ const Post = (props) => {
 
   if (post){
     return(
+      <>
       <div>{post.title}</div>
+      <div>{post.author.userName}</div>
+      <div>{post.date}</div>
+      <div>{post.text}</div>
+      </>
     )
   } else {
     return(

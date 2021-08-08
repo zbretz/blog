@@ -133,7 +133,7 @@ app.get('/:user/post/:id', (req, res) => {
       if(err){
         console.log(err)
       } else {
-      res.json(data)
+        res.json(data)
       }
     })
 
