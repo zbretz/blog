@@ -5,7 +5,10 @@ import {UserList} from './user_list.jsx';
 const NavBar = (props) => {
 
   return(
-
+    <>
+    <div>
+      <h1>Hello Webpack</h1>
+   </div>
     <div className="topnav">
       <a class="active" href="#home">RFP-54</a>
       <a href="#about">Week 1</a>
@@ -18,6 +21,7 @@ const NavBar = (props) => {
       </div>
 
     </div>
+    </>
 
   )
 }

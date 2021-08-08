@@ -3,7 +3,7 @@ const httpHandler = require('../httpHandler')
 
 const usePostData = (user, postId) => {
 
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState();
 
   useEffect(()=>{
     let componentMounted = true;

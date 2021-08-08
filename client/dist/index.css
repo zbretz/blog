@@ -8,9 +8,12 @@ body{
 }
 
 header{
-  height: 50px;
-  border: 2px solid black;
+  /* height: 50px; */
   margin-bottom: 10px;
+}
+
+.topnav{
+  border: 2px solid black;
 }
 
 #feed{
