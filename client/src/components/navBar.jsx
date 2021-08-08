@@ -1,6 +1,7 @@
 // https://www.w3schools.com/howto/howto_css_searchbar.asp
 import React, { useState, useEffect } from 'react';
 import {UserList} from './user_list.jsx';
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const NavBar = (props) => {
 
@@ -8,6 +9,9 @@ const NavBar = (props) => {
     <>
     <div>
       <h1>Hello Webpack</h1>
+      <Link to={`/create`}>
+        <div id='writePostButton'>Write a Post</div>
+      </Link>
    </div>
     <div className="topnav">
       <a class="active" href="#home">RFP-54</a>
