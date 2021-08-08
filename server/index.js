@@ -11,6 +11,10 @@ const app = express();
 
 app.use(
   auth({
+        routes: {
+        // Override the default login route to use your own login route as shown below
+        login: false
+      },
       authRequired: false,
       auth0Logout: true,
       issuerBaseURL: process.env.ISSUER_BASE_URL,
@@ -29,6 +33,9 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.get('/', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 });
+
+
+app.get('/login', (req, res) => res.oidc.login({ returnTo: '/profile' }));
 
 
 app.get('/callback', (req, res) => {
