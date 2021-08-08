@@ -1,14 +1,5 @@
 let UserModel = require('./user')
 
-//  const fetchPost = function(_id, callback){
-//   BlogModel.findById(_id)
-//   .then(doc=> {callback(null,doc)})
-//   .catch(err => {
-//     callback(err, null)
-//   })
-// }
-
-
 var username = 'Zach'
 var email = 'zachary.bretz@gmail.com'
 var bio = 'creator. studying at hack reactor.'
@@ -26,16 +17,22 @@ const createUser = function(username, email, bio, callback){
   })
 }
 
-createUser(username, email, bio, (err,data)=>{
-  if (err){
-    console.log(err)
-  }
-  console.log(data)
-})
+const getUserNameFromEmail = function(email, callback){
+    UserModel.find({email:email})
+  .then(doc=> {callback(null,doc)})
+  .catch(err => {
+    callback(err, null)
+  })
+}
 
-//fetchAll(()=>{})
+// createUser(username, email, bio, (err,data)=>{
+//   if (err){
+//     console.log(err)
+//   }
+//   console.log(data)
+// })
 
-//fetchAllUsers((err, data) => console.log(data))
+//getUserNameFromEmail('zachary.bretz@gmail.com', (err, data) => console.log(data))
 
 
 
