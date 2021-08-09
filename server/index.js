@@ -108,21 +108,24 @@ app.get('/create',requiresAuth(), (req, res)=>{
 app.post('/api/create', (req, res) => {
   var email = req.oidc.user.email//JSON.stringify(req.oidc.user.email)
   console.log(req.oidc.user.email)
+
+  var title = req.body.title
+  var text = req.body.text
+
   //below should really be a 'find one query'
-  var userName = fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+  fetchUsername.getUserNameFromEmail(email, (err,data)=>{
     if (err){
       throw (err)
     } else {
       console.log('test', data[0].username)
-      return data[0].username
+      const userName = data[0].username
+      const author = {userName:userName}
+      fetch.createPost(title, text, author, (err,data)=>{
+      })
     }
   })
-  console.log(userName)
-  var title = req.body.title
-  var text = req.body.text
-  const author = {userName:userName}
-  // fetch.createPost(title, text, author, (err,data)=>{
-  // })
+
+
 
 })
 
