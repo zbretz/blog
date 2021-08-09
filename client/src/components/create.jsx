@@ -26,10 +26,10 @@ const Create = (props) => {
     {/* </form><form onSubmit={useHandleSubmit(value)}> */}
         <label>
           Title:
-          <textarea value={title} onChange={()=>{setTitle(event.target.value)}}/>
+          <textarea id='create-title' value={title} onChange={()=>{setTitle(event.target.value)}}/>
           {/* <textarea value={value} onChange={setValue(event.target.value)} onClick={clickHandler}/> */}
           Text:
-          <textarea value={text} onChange={()=>{setText(event.target.value)}}/>
+          <textarea id='create-text' value={text} onChange={()=>{setText(event.target.value)}}/>
         </label>
         <input type="submit" value="Submit" />
       </form>
