@@ -211,3 +211,17 @@ a:active {
   .topnav input[type=text] {
     border: 1px solid #ccc;
   }
+}
+
+#create-title{
+  height: 20px;
+  width:400px;
+  display: block;
+}
+
+#create-text{
+  height: 420px;
+  width:400px;
+
+  display: block;
+}
