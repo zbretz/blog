@@ -73,10 +73,19 @@ header{
   /* font-weight: 600; */
 }
 
+.feed-title{
+  font-size: 14px;
+  margin-bottom: 0px;
+  color:#24292E
+}
+
+
 .feed-text{
   font-size: 12px;
   color: #586069;
+  margin-top: 0px;
 }
+
 
 
 /* help desk section */
