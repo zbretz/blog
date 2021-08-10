@@ -24,6 +24,7 @@ html, body {
 
 .container__left {
   width: 35%;
+  padding: 2%;
 }
 
 .container__middle {
@@ -37,6 +38,7 @@ html, body {
 
 .container__right {
   width: 40%;
+  padding: 2%;
 }
 
 #header-content{
@@ -75,3 +77,30 @@ header{
   font-size: 12px;
   color: #586069;
 }
+
+
+/* help desk section */
+
+
+.help-post{
+  /* border-radius: 12px; */
+  min-height:50px;
+  margin:10px auto;
+  background-color: white;
+  border: 1px solid #ebedef;
+  padding: 12px;
+}
+
+
+.help-text{
+  font-size: 12px;
+  color: #586069;
+}
+
+.help-text{
+  border-bottom: 1px solid #ebedef;
+  padding-bottom: 8px;
+}
+
+
+/* border-bottom: 1px solid #ebedef;; */
