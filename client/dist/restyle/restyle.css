@@ -1,0 +1,72 @@
+html{
+  width:100%;
+  margin: 0px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container__main {
+  /* Take the remaining height */
+  flex-grow: 1;
+
+  /* Layout the left sidebar, main content and right sidebar */
+  display: flex;
+  flex-direction: row;
+}
+
+.container__left {
+  width: 35%;
+}
+
+.container__middle {
+  /* Take the remaining width */
+  flex-grow: 1;
+}
+
+.container__right {
+  width: 40%;
+}
+
+#header-content{
+  padding:22px;
+  margin:0px;
+  color:white;
+}
+
+header{
+  background-color: #24292e;
+  margin:0px
+}
+
+.section-label{
+  color:#24292E
+}
+
+.feed-post{
+  border-radius: 12px;
+  min-height:50px;
+  /* width: 100%; */
+  margin:10px auto;
+  /* background-color: black; */
+  border: 1px solid #ebedef;
+  padding: 12px;
+}
+
+.feed-author{
+  color: #0366d6;
+  margin-bottom: 2px;
+  /* font-weight: 600; */
+}
+
+.feed-text{
+  font-size: 12px;
+  color: #586069;
+}
