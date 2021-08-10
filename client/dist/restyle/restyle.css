@@ -29,6 +29,10 @@ html, body {
 .container__middle {
   /* Take the remaining width */
   flex-grow: 1;
+  background-color: #f7f8fa;
+  padding: 2%;
+  border-left: 1px solid #ebedef;
+  height: 100vh;
 }
 
 .container__right {
@@ -55,9 +59,10 @@ header{
   min-height:50px;
   /* width: 100%; */
   margin:10px auto;
-  /* background-color: black; */
+  background-color: white;
   border: 1px solid #ebedef;
   padding: 12px;
+  /* width: 80%; */
 }
 
 .feed-author{
