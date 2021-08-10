@@ -1,7 +1,6 @@
 # auth0
  - https://dev.to/jamesqquick/the-easiest-way-to-add-node-js-user-authentication-55n4
  - https://auth0.com/docs/quickstart/webapp/express/01-login#configure-auth0
- - https://auth0.com/docs/applications/work-with-auth0-locally
  - https://auth0.com/blog/complete-guide-to-nodejs-express-user-authentication/
 
 # Routes
@@ -17,3 +16,6 @@
 
 # Hooks
  - https://reactjs.org/docs/hooks-overview.html
+
+ # Memchache
+ - https://cloud.google.com/appengine/docs/standard/python/memcache/examples

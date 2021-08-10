@@ -12,6 +12,8 @@ function useHandleSubmit(post){
   })
 }
 
+// maybe re-direct to main page but since saving post and requesting to main feed is async and slow, send post data to feed and display that to user?
+
 const Create = (props) => {
 
   const [title, setTitle] = useState('');

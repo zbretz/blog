@@ -13,8 +13,7 @@ blog
  - blog post: why this is good...current mongoDB schema stinks! convoluted access to uer mdoel. practicsl knowledge
 
 *****CREATE A USER MODEL*****
+next: after login (triggered by visiting create post), check for user registered (does user model exist)? if not, direct to signup page...is there any way to do this before sending them to auth?
 
-user model:
-
-associate email with username and cohort and bio or anything else at HR
-registration page
+to go from create/submit post to main page....
+onclick submit then redirect
