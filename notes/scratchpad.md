@@ -14,6 +14,27 @@ blog
 
 *****CREATE A USER MODEL*****
 next: after login (triggered by visiting create post), check for user registered (does user model exist)? if not, direct to signup page...is there any way to do this before sending them to auth?
+  https://reactrouter.com/web/api/Redirect
+  https://stackoverflow.com/questions/19035373/how-do-i-redirect-in-expressjs-while-passing-some-context
 
 to go from create/submit post to main page....
 onclick submit then redirect
+
+sdc: https://medium.com/@andrewmyint
+
+AWSpass1!
+https://docs.aws.amazon.com/ground-station/latest/ug/create-ec2-ssh-key-pair.html
+https://github.com/airbnb/javascript
+https://www.atlassian.com/git/tutorials/undoing-changes
+https://ourcodeworld.com/articles/read/977/how-to-deploy-a-node-js-application-on-aws-ec2-server
+
+mongoDB location:
+storage:
+  dbPath: /usr/local/var/mongodb
+
+blog.pem located at: Macintosh HD⁩ ▸ ⁨Users⁩ ▸ ⁨zach⁩ ▸ ⁨Downloads⁩
+
+ssh -i blog.pem ubuntu@https://18.223.170.9
+
+setting up mongodb on aws:
+  https://devopsmyway.com/install-mongodb-on-ec2/
