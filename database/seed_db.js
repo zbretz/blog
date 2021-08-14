@@ -11,12 +11,12 @@ const createPost = function(title, text, author, callback){
   post.save()
   .then(doc => {
     console.log(doc)
-    callback(null, doc)
+ //   callback(null, doc)
   })
   .catch(err => {
-    console.log(err)
+ //  console.log(err)
     callback(err, null)
   })
 }
 
-createPost(title,text,author
+createPost(title,text,author)

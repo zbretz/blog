@@ -30,9 +30,8 @@ const getFeedAllUsers = (callback) => {
 
   instance.get(`/api/all`)
     .then(response => {
-    console.log(response.data);
+    // console.log(response.data);
     callback(null,response.data)
-    //console.log(response.data)
     })
     .catch(function (err) {
     console.log(err);
@@ -54,9 +53,8 @@ const getUsers = (callback) => {
 
   instance.get(`/api/users`)
     .then(response => {
-    console.log(response.data);
+    // console.log(response.data);
     callback(null,response.data)
-    //console.log(response.data)
     })
     .catch(function (err) {
     console.log(err);

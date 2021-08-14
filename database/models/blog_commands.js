@@ -31,7 +31,7 @@ const fetchAll = function(callback){
   limit(12).
   sort({date: -1})
   .then(doc => {
-    console.log(doc)
+    // console.log(doc)
     callback(null, doc)
   })
   .catch(err => {

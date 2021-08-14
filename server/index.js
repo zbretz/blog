@@ -36,7 +36,38 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/login', (req, res) => res.oidc.login({ returnTo: '/profile' }));
+app.get('/login', (req, res) => {
+
+  // console.log(req.oidc.user.email)
+  console.log('AAAAA')
+
+  //var email = req.oidc.user.email
+
+  // let username;
+
+  // //below should really be a 'find one query'
+  // fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+  //   if (err){
+  //     throw (err)
+  //   } else {
+  //       console.log('test', data[0].username)
+  //       if(data[0]){
+  //         username = data[0].username
+  //       }
+  //     }
+  // })
+
+  // if (username) res.oidc.login({ returnTo: '/profile' })
+  console.log(req.originalUrl)
+  res.oidc.login({ returnTo: '/profile' })
+  // else res.oidc.login({returnTo: '/aa'})
+
+  // plan: new route that /login redirects to.
+  // do all the checking/redirection in there. need to find the original destination tho (originalUrl?)
+
+  });
+
+
 
 
 app.get('/callback', (req, res) => {
@@ -57,7 +88,7 @@ app.get('/api/all', (req, res) => {
       if(err){
         throw(err)
       } else{
-        console.log(data)
+        // console.log(data)
         res.json(data)
       }
     })
@@ -83,7 +114,7 @@ app.get('/api/:user/feed', (req, res) => {
       throw(err)
     } else{
       res.json(data)
-      console.log(data)
+      // console.log(data)
     }
   })
 });
@@ -95,12 +126,13 @@ app.get('/api/users', (req, res) => {
       throw(err)
     } else{
       res.json(data)
-      console.log(data)
+      // console.log(data)
     }
   })
 });
 
 app.get('/create',requiresAuth(), (req, res)=>{
+  console.log('/create', req.oidc.user)
   res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
 })
 
