@@ -33,7 +33,13 @@ const getUserNameFromEmail = function(email, callback){
 //   console.log(data)
 // })
 
-// getUserNameFromEmail('zachary.bretz@gmail.com', (err, data) => console.log(data[0].username))
+ getUserNameFromEmail('zachary.brtz@gmail.com', (err, data) => {
+   if (err){
+     null
+   } else {
+   console.log(data[0].username)
+   }
+  })
 
 
 
