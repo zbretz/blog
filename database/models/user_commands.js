@@ -33,11 +33,14 @@ const getUserNameFromEmail = function(email, callback){
 //   console.log(data)
 // })
 
- getUserNameFromEmail('zachary.brtz@gmail.com', (err, data) => {
+ getUserNameFromEmail('zachary.bretz@gmail.com', (err, data) => {
    if (err){
-     null
+     console.log(err)
    } else {
-   console.log(data[0].username)
+      if (data.length) {   console.log(data[0].username)
+      } else {
+      console.log('returned no records')
+      }
    }
   })
 
