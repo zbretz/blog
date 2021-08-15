@@ -7,6 +7,24 @@ const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 const bodyParser = require("body-parser");
 
+const checkRegistration = () => {
+  return (req, res, next) => {
+
+    var email = req.oidc.user.email
+
+    fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+      if (err){
+        throw (err)
+      } else {
+          if(data[0]){
+            next()
+          } else {//REDIRECT HERE TO REGISTER PAGE
+          res.redirect('/register_user')
+        }
+      }
+    })
+  }
+}
 
 const app = express();
 
@@ -38,34 +56,70 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
 
+  //ok so login doesn't relate to the auth process...it's just a dedicated login route?
+  // res.oidc.login({ returnTo: '/profile' })...and then polly this function <- does the login
+  // this sounds right..the login route was provided by auth0..they gove you the ption to do it manually and use the login utility at res.oidc.login
+
+
+
+
   // console.log(req.oidc.user.email)
   console.log('AAAAA')
+  console.log(req.oidc)
 
-  //var email = req.oidc.user.email
 
-  // let username;
+  var email = req.oidc.user.email
 
-  // //below should really be a 'find one query'
-  // fetchUsername.getUserNameFromEmail(email, (err,data)=>{
-  //   if (err){
-  //     throw (err)
-  //   } else {
-  //       console.log('test', data[0].username)
-  //       if(data[0]){
-  //         username = data[0].username
-  //       }
-  //     }
-  // })
+  let username;
 
-  // if (username) res.oidc.login({ returnTo: '/profile' })
-  console.log(req.originalUrl)
-  res.oidc.login({ returnTo: '/profile' })
+  //below should really be a 'find one query'
+  fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+    if (err){
+      throw (err)
+    } else {
+        if(data[0]){
+          console.log('test', data[0].username)
+          username = data[0].username
+          res.redirect('/create')
+        } else //REDIRECT HERE TO REGISTER PAGE
+        res.redirect('/profile')
+
+      }
+  })
+
+
+
+  // res.oidc.login({ returnTo: '/profile' })
   // else res.oidc.login({returnTo: '/aa'})
 
   // plan: new route that /login redirects to.
   // do all the checking/redirection in there. need to find the original destination tho (originalUrl?)
 
   });
+
+  app.get('/register_user', (req, res) =>{
+    // var email = req.oidc.user.email
+
+    // let username;
+
+    // //below should really be a 'find one query'
+    // fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+    //   if (err){
+    //     throw (err)
+    //   } else {
+    //       if(data[0]){
+    //         console.log('test', data[0].username)
+    //         username = data[0].username
+    //         res.redirect('/create')
+    //       } else //REDIRECT HERE TO REGISTER PAGE
+    //       res.redirect('/profile')
+
+    //     }
+    // })
+
+    res.send('registration page')
+
+  })
 
 
 
@@ -99,6 +153,7 @@ app.get('/api/all', (req, res) => {
 });
 
 app.get('/edit', (req, res) => {
+  res.send(history.location)
 
  });
 
@@ -131,14 +186,15 @@ app.get('/api/users', (req, res) => {
   })
 });
 
-app.get('/create',requiresAuth(), (req, res)=>{
-  console.log('/create', req.oidc.user)
+app.get('/create',requiresAuth(), checkRegistration(), (req, res)=>{
+  console.log('url: /create', req.oidc.user)
+  console.log('req info', req.url)
   res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
 })
 
 app.post('/api/create', (req, res) => {
   var email = req.oidc.user.email//JSON.stringify(req.oidc.user.email)
-  console.log(req.oidc.user.email)
+  console.log('email', req.oidc.user.email)
 
   var title = req.body.title
   var text = req.body.text
