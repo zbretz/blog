@@ -6,25 +6,9 @@ let fetchUsername = require('../database/models/user_commands')
 const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 const bodyParser = require("body-parser");
+var session = require('express-session')
 
-const checkRegistration = () => {
-  return (req, res, next) => {
 
-    var email = req.oidc.user.email
-
-    fetchUsername.getUserNameFromEmail(email, (err,data)=>{
-      if (err){
-        throw (err)
-      } else {
-          if(data[0]){
-            next()
-          } else {//REDIRECT HERE TO REGISTER PAGE
-          res.redirect('/register_user')
-        }
-      }
-    })
-  }
-}
 
 const app = express();
 
@@ -42,6 +26,36 @@ app.use(
       secret: process.env.SECRET,
   })
 );
+
+app.use(session({
+  secret: 'keyboard cat',
+  // resave: false,
+  // saveUninitialized: true,
+  // cookie: { secure: true }
+}))
+
+
+const checkRegistration = () => {
+  return (req, res, next) => {
+
+    console.log('CHECK REG ORINGIAL URL: ', req.originalUrl)
+    req.session.originalDestination = req.originalUrl
+
+    var email = req.oidc.user.email
+
+    fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+      if (err){
+        throw (err)
+      } else {
+          if(data[0]){
+            next()
+          } else {//REDIRECT HERE TO REGISTER PAGE
+          res.redirect('/register_user')
+        }
+      }
+    })
+  }
+}
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -97,7 +111,7 @@ app.get('/login', (req, res) => {
 
   });
 
-  app.get('/register_user', (req, res) =>{
+  app.get('/register_user',  (req, res) =>{
     // var email = req.oidc.user.email
 
     // let username;
@@ -116,6 +130,8 @@ app.get('/login', (req, res) => {
 
     //     }
     // })
+    console.log('REGISTER USER ORINGIAL URL: ', req.originalUrl)
+    console.log(req.session.originalDestination)
 
     res.send('registration page')
 
