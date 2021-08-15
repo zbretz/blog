@@ -7,7 +7,7 @@ import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function useHandleSubmit(userInfo){
   httpHandler.register_user(userInfo, (err,data)=>{
     if (err){
-    }else {}
+    }else {} // REDIRECT TO ORIGINAL DESTINATION (ON COOKIE)
   })
 }
 
