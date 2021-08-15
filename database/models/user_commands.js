@@ -4,18 +4,18 @@ var username = 'Zach'
 var email = 'zachary.bretz@gmail.com'
 var bio = 'creator. studying at hack reactor.'
 
-const createUser = function(username, email, bio, callback){
-  let user = new UserModel({username, email, bio})
-  user.save()
-  .then(doc => {
-   // console.log(doc)
-    callback(null, doc)
-  })
-  .catch(err => {
-    console.log(err)
-  //  callback(err, null)
-  })
-}
+// const createUser = function(username, email, bio, callback){
+//   let user = new UserModel({username, email, bio})
+//   user.save()
+//   .then(doc => {
+//    // console.log(doc)
+//     callback(null, doc)
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   //  callback(err, null)
+//   })
+// }
 
 //below should really be a 'find one query'
 const getUserNameFromEmail = function(email, callback){
@@ -26,6 +26,20 @@ const getUserNameFromEmail = function(email, callback){
   })
 }
 
+const registerUser = function(username, email, bio, callback){
+  console.log('USER_COMMANDS')
+    let user = new UserModel({username, email, bio})
+    user.save()
+    .then(doc => {
+      console.log(doc)
+      callback(null, doc)
+    })
+    .catch(err => {
+      console.log(err)
+      callback(err, null)
+    })
+}
+
 // createUser(username, email, bio, (err,data)=>{
 //   if (err){
 //     console.log(err)
@@ -33,18 +47,18 @@ const getUserNameFromEmail = function(email, callback){
 //   console.log(data)
 // })
 
- getUserNameFromEmail('zachary.bretz@gmail.com', (err, data) => {
-   if (err){
-     console.log(err)
-   } else {
-      if (data.length) {   console.log(data[0].username)
-      } else {
-      console.log('returned no records')
-      }
-   }
-  })
+//  getUserNameFromEmail('zachary.bretz@gmail.com', (err, data) => {
+//    if (err){
+//      console.log(err)
+//    } else {
+//       if (data.length) {   console.log(data[0].username)
+//       } else {
+//       console.log('returned no records')
+//       }
+//    }
+//   })
 
 
 
 
-module.exports = {getUserNameFromEmail}
+module.exports = {getUserNameFromEmail, registerUser}

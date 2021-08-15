@@ -2,13 +2,11 @@
 const express = require('express');
 const path = require("path");
 let fetch = require('../database/models/blog_commands')
-let fetchUsername = require('../database/models/user_commands')
+let fetchUser = require('../database/models/user_commands')
 const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 const bodyParser = require("body-parser");
 var session = require('express-session')
-
-
 
 const app = express();
 
@@ -38,12 +36,9 @@ app.use(session({
 const checkRegistration = () => {
   return (req, res, next) => {
 
-    console.log('CHECK REG ORINGIAL URL: ', req.originalUrl)
     req.session.originalDestination = req.originalUrl
-
     var email = req.oidc.user.email
-
-    fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+    fetchUser.getUserNameFromEmail(email, (err,data)=>{
       if (err){
         throw (err)
       } else {
@@ -87,7 +82,7 @@ app.get('/login', (req, res) => {
   let username;
 
   //below should really be a 'find one query'
-  fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+  fetchUser.getUserNameFromEmail(email, (err,data)=>{
     if (err){
       throw (err)
     } else {
@@ -111,13 +106,13 @@ app.get('/login', (req, res) => {
 
   });
 
-  app.get('/register_user',  (req, res) =>{
+  app.get('/register_user', requiresAuth(),  (req, res) =>{
     // var email = req.oidc.user.email
 
     // let username;
 
     // //below should really be a 'find one query'
-    // fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+    //.getUserNameFromEmail(email, (err,data)=>{
     //   if (err){
     //     throw (err)
     //   } else {
@@ -130,15 +125,13 @@ app.get('/login', (req, res) => {
 
     //     }
     // })
-    console.log('REGISTER USER ORINGIAL URL: ', req.originalUrl)
+    console.log('REGISTER USER ORIGINAL URL: ', req.originalUrl)
     console.log(req.session.originalDestination)
 
-    res.send('registration page')
+    res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
+    // res.send('registration page')
 
   })
-
-
-
 
 app.get('/callback', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
@@ -216,7 +209,7 @@ app.post('/api/create', (req, res) => {
   var text = req.body.text
 
   //below should really be a 'find one query'
-  fetchUsername.getUserNameFromEmail(email, (err,data)=>{
+  fetchUser.getUserNameFromEmail(email, (err,data)=>{
     if (err){
       throw (err)
     } else {
@@ -227,6 +220,17 @@ app.post('/api/create', (req, res) => {
       })
     }
   })
+})
+
+app.post('/api/register_user', (req, res) => {
+  var email = req.oidc.user.email
+
+  var username = req.body.username
+  var bio = req.body.bio
+
+  fetchUser.registerUser(username, email, bio, (err,data)=>{
+  })
+
 })
 
 app.get('/:user/post/:id', (req, res) => {

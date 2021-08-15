@@ -5,7 +5,7 @@ import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // https://reactjs.org/docs/forms.html
 
 function useHandleSubmit(userInfo){
-  httpHandler.register_user(userInfo, (err,data)=>{
+  httpHandler.registerUser(userInfo, (err,data)=>{
     if (err){
     }else {} // REDIRECT TO ORIGINAL DESTINATION (ON COOKIE)
   })
@@ -32,5 +32,5 @@ const Register_User = (props) => {
 
 }
 
-export {Create};
+export {Register_User};
 

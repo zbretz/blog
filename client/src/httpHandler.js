@@ -102,7 +102,7 @@ const create = (post, callback) => {
 
 }
 
-const register_user = (user, callback) => {
+const registerUser = (user, callback) => {
   const {username, bio} = user
 
   axios.post('http://localhost:8000/api/register_user', {
@@ -111,9 +111,5 @@ const register_user = (user, callback) => {
   });
 
 }
-username: {type: String, required: true, unique: true},
-email: {type: String, required: true, unique: true},//this will be autopopulated
-joined: { type: Date, default: Date.now },
-bio: {type: String, required: false}
 
-module.exports = {getFeedAllUsers, getFeedOneUser, getUsers, getPost, create}
+module.exports = {getFeedAllUsers, getFeedOneUser, getUsers, getPost, create, registerUser}
