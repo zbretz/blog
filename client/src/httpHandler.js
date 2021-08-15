@@ -108,7 +108,14 @@ const registerUser = (user, callback) => {
   axios.post('http://localhost:8000/api/register_user', {
     username: username,
     bio: bio
-  });
+  }) .then(response => {
+    callback(null,response.data)
+    })
+    .catch(function (err) {
+    callback(err, null)
+    })
+    .then()
+
 
 }
 
