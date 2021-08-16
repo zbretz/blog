@@ -40,62 +40,51 @@ const Feed = (props) => {
         <>
         <div class="container">
 
-          <header>
+        <header>
+          <p id='header-content'>Header Content</p>
+        </header>
+
+          {/* <header>
             <NavBar/>
-          </header>
-          <main class="container__main">
-              <aside class="container__left">
+          </header> */}
+          <main className="container__main">
+
+              <aside className="container__left">
+                <p className='section-label'>RFP-54</p>
                 <UserList postData={postData}/>
               </aside>
+
               <article class="container__middle">
+                <p className='section-label'>blog posts</p>
 
-
-                <div id='feed'>
-                  Post Feed
                   {postData.map(post=>
-                    <div className='post' >
-                      <Link to={`/${post.author.userName}/post/${post._id}`}>
-                        <h3 className='post-title'>{post.title}</h3>
+                    <div className='feed-post' >
+                      <Link to={`/${post.author.userName}/feed`}>
+                        <p className='feed-author'>{post.author.userName}</p>
                       </Link>
-                      <div className='post-content'>
-                        <Link to={`/${post.author.userName}/feed`}>
-                          <div><strong>{post.author.userName}</strong></div>
-                        </Link>
-                        <div>{post.text.slice(0,120)}</div>
-                      </div>
-
+                      <Link to={`/${post.author.userName}/post/${post._id}`}>
+                        <p className='feed-title'>{post.title}</p>
+                      </Link>
+                      <p className='feed-text'>{post.text.slice(0,120)} </p>
                     </div>
+
+
                   )}
-                </div>
 
               </article>
-              <nav class="container__right">
-                <div id='qa_feed'>
-                  {/* Questions and Answers
-                  <div className='qa_feed__qa'>
-                  </div>
+              <nav className="container__right">
+              <p className='section-label'>community questions</p>
+              <div className='help-post'>
 
-                  <div className='qa_feed__qa'>
-                  </div> */}
-                  Questions and Answers
 
-                    <div className='post' >
                       <Link to={`/`}>
-                        <h3 className='post-title'>Title</h3>
+                      <p class='help-text'>How do I undo the most recent local commits in Git? </p>
                       </Link>
-                      <div className='post-content'>
-                        <Link to={`/`}>
-                          <div><strong>Author Name</strong></div>
-                        </Link>
-                        <div>Question</div>
-                      </div>
-
-                    </div>
 
 
+              </div>
 
 
-                </div>
               </nav>
           </main>
           <footer>

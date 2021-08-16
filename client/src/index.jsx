@@ -5,6 +5,7 @@ import {Feed} from './components/feed.jsx';
 import Post from './components/post.jsx';
 import {Create} from './components/create.jsx';
 import {Register_User} from './components/register_user.jsx';
+import {NavBar} from './components/navBar.jsx';
 
 
 const title = 'React with Webpack and Babel';
@@ -18,7 +19,7 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        {/* <Navigation /> */}
+        <NavBar/>
         <Switch>
           {/* <Route path="/all" component={Feed} />
           <Route path="/:user/feed" component={Feed} /> */}

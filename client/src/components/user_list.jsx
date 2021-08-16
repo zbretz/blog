@@ -31,17 +31,13 @@ const UserList = () => {
 
   return(
     <div id='user-list'>
-    user list
-    <div>
-    <ul id='user-list--names'>
-      <Link to={`/all`}><li><a>All Users</a></li></Link>
+      <Link to={`/all`}><p><a>All Users</a></p></Link>
       {userData.map(author =>
       <Link to={`/${author.userName}/feed`}>
-        <li><a> {author.userName} </a></li>
+        <p class='user-list--name'>{author.userName}</p>
+
       </Link>
         )}
-    </ul>
-    </div>
     </div>
   )
 }

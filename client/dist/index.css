@@ -41,15 +41,6 @@ h1{display: inline-block;}
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#user-list{
-  padding:20px;
-  margin: auto;
-  background-color: ;
-  color: #333333;
-  width: 120px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
 #user-list--names{
   /* border: 1px solid #333333; */
@@ -225,3 +216,149 @@ a:active {
 
   display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ///////////////////////////////// */
+html{
+  width:100%;
+  margin: 0px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container__main {
+  /* Take the remaining height */
+  flex-grow: 1;
+
+  /* Layout the left sidebar, main content and right sidebar */
+  display: flex;
+  flex-direction: row;
+}
+
+.container__left {
+  width: 20%;
+  padding: 2%;
+}
+
+.container__middle {
+  /* Take the remaining width */
+  flex-grow: 1;
+  background-color: #f7f8fa;
+  padding: 2%;
+  border-left: 1px solid #ebedef;
+  height: 100vh;
+}
+
+.container__right {
+  width: 40%;
+  padding: 2%;
+}
+
+#header-content{
+  padding:22px;
+  margin:0px;
+  color:white;
+}
+
+header{
+  background-color: #24292e;
+  margin:0px
+}
+
+.section-label{
+  color:#24292E
+}
+
+.feed-post{
+  border-radius: 12px;
+  min-height:50px;
+  /* width: 100%; */
+  margin:10px auto;
+  background-color: white;
+  border: 1px solid #ebedef;
+  padding: 12px;
+  /* width: 80%; */
+}
+
+.feed-author{
+  color: #0366d6;
+  margin-bottom: 2px;
+  /* font-weight: 600; */
+}
+
+.feed-title{
+  font-size: 14px;
+  margin-bottom: 0px;
+  color:#24292E
+}
+
+
+.feed-text{
+  font-size: 12px;
+  color: #586069;
+  margin-top: 0px;
+}
+
+/* user list section */
+.user-list--name{
+  color: #0366d6;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  /* font-weight: 600; */
+}
+
+
+/* help desk section */
+
+
+.help-post{
+  /* border-radius: 12px; */
+  min-height:50px;
+  margin:10px auto;
+  background-color: white;
+  border: 1px solid #ebedef;
+  padding: 12px;
+}
+
+
+.help-text{
+  font-size: 12px;
+  color: #24292E;
+}
+
+.help-text{
+  border-bottom: 1px solid #ebedef;
+  padding-bottom: 8px;
+  font-weight: 600;
+}
+
+
+/* border-bottom: 1px solid #ebedef;; */
