@@ -98,7 +98,12 @@ const create = (post, callback) => {
   axios.post('http://localhost:8000/api/create', {
     title: title,
     text: text
-  });
+  }).then(response => {
+    callback(null,response.data)
+    })
+    .catch(function (err) {
+    callback(err, null)
+    })
 
 }
 
@@ -108,13 +113,12 @@ const registerUser = (user, callback) => {
   axios.post('http://localhost:8000/api/register_user', {
     username: username,
     bio: bio
-  }) .then(response => {
+  }).then(response => {
     callback(null,response.data)
     })
     .catch(function (err) {
     callback(err, null)
     })
-    .then()
 
 
 }
