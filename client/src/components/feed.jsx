@@ -40,10 +40,6 @@ const Feed = (props) => {
         <>
         <div class="container">
 
-        <header>
-          <p id='header-content'>Header Content</p>
-        </header>
-
           {/* <header>
             <NavBar/>
           </header> */}

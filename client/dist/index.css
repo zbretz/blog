@@ -21,15 +21,16 @@ h1{display: inline-block;}
 }
 
 #writePostButton{
+  color:#fff;
   font-weight: bold;
-  padding: 10px;
+  /* padding: 10px; */
   display: block;
   float: right;
-  background-color:  #F7F3E9;
-  border-radius: 15px;
-  border:10px solid #A3D2CA;
-  margin: 10px;
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  /* background-color:  #F7F3E9; */
+  /* border-radius: 15px; */
+  /* border:10px solid #A3D2CA; */
+  /* margin: 10px; */
+  /* box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%); */
 }
 
 #feed{
