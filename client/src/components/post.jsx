@@ -32,10 +32,29 @@ const Post = (props) => {
   if (post){
     return(
       <>
-      <div>{post.title}</div>
-      <div>{post.author.userName}</div>
-      <div>{post.date}</div>
-      <div>{post.text}</div>
+
+
+
+      <div class="create_container">
+
+<main className="create_container__main">
+
+      <div id='create_container__main__post_title'>{post.title}</div>
+      <div id='create_container__main__post_author'>{post.author.userName}</div>
+      <div id='create_container__main__post_date'>{post.date}</div>
+      <div id='create_container__main__post_text'>{post.text}</div>
+
+</main>
+
+<aside class="create_container__sidebar">
+        ...
+</aside>
+
+<footer>
+</footer>
+</div>
+
+
       </>
     )
   } else {
