@@ -19,10 +19,8 @@ class Register_User extends React.Component{
 
   }
 
-
-
   handleSubmit(e){
-    // setRedirect(true)
+    // this.setState({redirect:true})
     const username = this.state.username
     const bio = this.state.bio
     const userInfo = {username, bio}
@@ -30,8 +28,6 @@ class Register_User extends React.Component{
       if (err){
       }
         this.setState({redirect:true})
-        console.log('KJSDJK')
-
     })
   }
 
@@ -52,11 +48,9 @@ class Register_User extends React.Component{
 
   return(
     <form onSubmit={this.handleSubmit}>
-    {/* </form><form onSubmit={useHandleSubmit(value)}> */}
         <label>
           Select Your Username:
           <textarea id='create-username' value={this.state.username} onChange={this.handleChangeUsername}/>
-          {/* <textarea value={value} onChange={setValue(event.target.value)} onClick={clickHandler}/> */}
           Short Bio (eg. cohort and city):
           <textarea id='create-bio' value={this.state.bio} onChange={this.handleChangeBio}/>
         </label>

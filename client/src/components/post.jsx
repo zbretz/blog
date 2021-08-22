@@ -42,7 +42,11 @@ const Post = (props) => {
       <div id='create_container__main__post_title'>{post.title}</div>
       <div id='create_container__main__post_author'>{post.author.userName}</div>
       <div id='create_container__main__post_date'>{post.date}</div>
-      <div id='create_container__main__post_text'>{post.text}</div>
+      <div id='create_container__main__post_text'>
+        {post.text.split('\n').map(para => (
+          <p>{para}</p>
+        ))}
+      </div>
 
 </main>
 
