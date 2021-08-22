@@ -10,7 +10,9 @@ const NavBar = (props) => {
     <div>
       <header>
         <div id='header-content'>
-          <span>Header Content</span>
+          <Link to={`/all`}>
+            <span id='header-content__home-btn'>Home</span>
+          </Link>
           <a href='/create'>
             <span id='writePostButton'>Write a Post</span>
           </a>
