@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
 const httpHandler = require('../httpHandler')
-import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link, BrowserRouter as Router, Route, Switch, useHistory, Redirect } from "react-router-dom";
 import {UserList} from './user_list.jsx';
 
 // https://reactjs.org/docs/forms.html
 
-function useHandleSubmit(post){
-  httpHandler.create(post, (err,data)=>{
-    if (err){
-    }else {
-      let redirect = true
-    }
-    if (redirect) setRedirect(true)
-  })
-}
+
 
 // maybe re-direct to main page but since saving post and requesting to main feed is async and slow, send post data to feed and display that to user?
 // or simply direct to post
@@ -23,19 +15,28 @@ const Create = (props) => {
 
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
-  const [redirect, setRedirect] = useState(false)
+   const [redirect, setRedirect] = useState(false)
 
 
-  const clickHandler = () =>{
-    // httpHandler.create()
+  function handleSubmit(e, post){
+    e.preventDefault();
+    httpHandler.create(post)
+    .then(()=>{
+      setRedirect(true)
+      })
+    .catch((err) => {alert(err)})
+    console.log('redirect?', redirect)
   }
 
-  if (redirect) {
-    return <Redirect to="/create" />
+  if(redirect){
+    const history = useHistory();
+    history.push("/all")
+    //  return <Redirect to="/all" />
   }
+
 
   return(
-    <form onSubmit={()=>{useHandleSubmit({title,text})}}>
+    <form onSubmit={(e)=>handleSubmit(e,{title,text})}>
     {/* </form><form onSubmit={useHandleSubmit(value)}> */}
         <label>
           Title:
@@ -49,6 +50,7 @@ const Create = (props) => {
   )
 
 }
+
 
 export {Create};
 

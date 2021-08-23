@@ -77,7 +77,6 @@ const getPost = (user='Zach', _id='610340848779b2ddec4a95ef', callback) => {
     .then(response => {
     console.log(response.data);
     callback(null,response.data)
-    //console.log(response.data)
     })
     .catch(function (err) {
     console.log(err);
@@ -92,18 +91,13 @@ const getPost = (user='Zach', _id='610340848779b2ddec4a95ef', callback) => {
 
 
 // const create = (user='Zach', _id='610340848779b2ddec4a95ef', callback) => {
-const create = (post, callback) => {
+const create = (post) => {
   const {title, text} = post
 
-  axios.post('http://localhost:8000/api/create', {
+    return axios.post('http://localhost:8000/api/create', {
     title: title,
     text: text
-  }).then(response => {
-    callback(null,response.data)
-    })
-    .catch(function (err) {
-    callback(err, null)
-    })
+  })
 
 }
 

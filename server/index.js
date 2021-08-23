@@ -89,7 +89,7 @@ app.get('/login', (req, res) => {
         if(data[0]){
           console.log('test', data[0].username)
           username = data[0].username
-          res.redirect('/create')
+          // res.redirect('/create')
         } else //REDIRECT HERE TO REGISTER PAGE
         res.redirect('/profile')
 
@@ -220,6 +220,8 @@ app.post('/api/create', (req, res) => {
       })
     }
   })
+
+  res.send('success')
 })
 
 app.post('/api/register_user', (req, res) => {
