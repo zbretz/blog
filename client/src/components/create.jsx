@@ -15,22 +15,31 @@ const Create = (props) => {
 
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
-   const [redirect, setRedirect] = useState(false)
+  const [redirect, setRedirect] = useState(false)
+  // const [post_id, setPost_id] = useState()
+  // const [post_author_userName, setPost_author_userName] = useState()
+  const [post, setPost] = useState()
 
+  var _id;
 
   function handleSubmit(e, post){
     e.preventDefault();
     httpHandler.create(post)
-    .then(()=>{
+    .then((response)=>{
+      // setPost_id(response.data._id);
+      // setPost_author_userName(response.data.author.userName);
+      setPost({'id':response.data._id, 'userName':response.data.author.userName})
       setRedirect(true)
       })
     .catch((err) => {alert(err)})
-    console.log('redirect?', redirect)
   }
 
   if(redirect){
     const history = useHistory();
-    history.push("/all")
+    // history.push(`/${post_author_userName}/post/${post_id}`)
+    history.push(`/${post.userName}/post/${post.id}`)
+
+    return null
     //  return <Redirect to="/all" />
   }
 

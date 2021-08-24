@@ -217,11 +217,11 @@ app.post('/api/create', (req, res) => {
       const userName = data[0].username
       const author = {userName:userName}
       fetch.createPost(title, text, author, (err,data)=>{
+        res.send(data)
       })
     }
   })
 
-  res.send('success')
 })
 
 app.post('/api/register_user', (req, res) => {
