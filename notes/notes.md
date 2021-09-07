@@ -17,6 +17,9 @@
   [ ] Create HTTP-handler that accesses API route
   [ ] Use HTTP-handler in useEffect/componentDidMount
 
+  9/6
+  Incorporate MVP into Blog project
+
 
 
 
